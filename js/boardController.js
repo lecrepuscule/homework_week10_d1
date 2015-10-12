@@ -19,8 +19,10 @@ function BoardController(){
   };
 
   this.makeMove = function(rowIndex, columnIndex){
-    this.board[rowIndex][columnIndex] = this.currentPlayer;
-    this.winner = this.checkConnection(rowIndex, columnIndex);
+    if (this.board[rowIndex][columnIndex] === ""){
+      this.board[rowIndex][columnIndex] = this.currentPlayer;
+      this.winner = this.checkConnection(rowIndex, columnIndex);
+    };
   };
 
   this.countConnections = function(row, rIncrement, column, cIncrement, currentCount) {
@@ -63,7 +65,6 @@ function BoardController(){
       var winner = this.findWinner([horizontalConnections, verticalConnections, leadDiagConnections, antiDiagConnections]);
       
       if (winner) {
-        alert("we have a winner!");
         return winner;
       }
       else {
@@ -91,7 +92,7 @@ function BoardController(){
   }
 
   this.endGame = function(winner) {
-    alert(winner === "draw" ? "It's a draw!" : winner + " has won!");
+    // alert(winner === "draw" ? "It's a draw!" : winner + " has won!");
     // if (window.confirm("Would you like to play another game?")) {
     //   runGame();
     // } 
