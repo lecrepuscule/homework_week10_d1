@@ -6,6 +6,7 @@ function BoardController(){
   this.maxRow;
   this.maxColumn;
   this.winCondition;
+  this.winner;
   this.currentPlayer = "x";
 
   this.setupBoard = function(){
@@ -17,9 +18,9 @@ function BoardController(){
     };
   };
 
-  this.markSquare = function(rowIndex, columnIndex){
+  this.makeMove = function(rowIndex, columnIndex){
     this.board[rowIndex][columnIndex] = this.currentPlayer;
-    this.checkConnection(rowIndex, columnIndex);
+    this.winner = this.checkConnection(rowIndex, columnIndex);
   };
 
   this.countConnections = function(row, rIncrement, column, cIncrement, currentCount) {
@@ -91,12 +92,12 @@ function BoardController(){
 
   this.endGame = function(winner) {
     alert(winner === "draw" ? "It's a draw!" : winner + " has won!");
-    if (window.confirm("Would you like to play another game?")) {
-      runGame();
-    } 
-    else {
-      alert("Bye!");
-    }
+    // if (window.confirm("Would you like to play another game?")) {
+    //   runGame();
+    // } 
+    // else {
+    //   alert("Bye!");
+    // }
   }
 
 }
