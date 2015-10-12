@@ -7,13 +7,14 @@ function BoardController(){
   this.maxColumn;
   this.winCondition;
 
-  this.setupBoad = function(){
-    for (r = 0; r < maxRow; r++) {
-      board.push([]);
-      for (c = 0; c < maxColumn; c++) {
-        board[r][c] = "";
-      }
-    }
-    return board;
-  }
+  this.setupBoard = function(){
+    for (r = 0; r < this.maxRow; r++) {
+      this.board.push([]);
+      for (c = 0; c < this.maxColumn; c++) {
+        this.board[r][c] = "";
+      };
+    };
+  };
+
+
 }

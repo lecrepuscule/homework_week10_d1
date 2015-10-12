@@ -8,7 +8,29 @@
   <script type="text/javascript" src="js/boardController.js"></script>
   <title>Tic Tac Toe</title>
 </head>
-<body ng-controller="BoardController">
-  
+
+<body ng-controller="BoardController as board">
+
+  <form id="config-form" ng-submit="board.setupBoard()">
+    <label for="maxRow">Row Number</label>
+    <input name="maxRow" type="number" ng-model="board.maxRow">
+
+    <label for="maxColumn">Column Number</label>
+    <input name="maxColumn" type="number" ng-model="board.maxColumn">
+
+    <label for="winCondition">Winning Condition</label>
+    <input name="winCondition" type="number" ng-model="board.winCondition">
+
+    <input type="submit" value="Play!">
+  </form>
+
+  <div id="container">
+    <div id="board">
+      <div class="row" ng-repeat="row in board.board track by $index">
+        <div class="square" ng-repeat="column in row track by $index">
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
