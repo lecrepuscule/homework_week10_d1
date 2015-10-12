@@ -77,13 +77,13 @@ function BoardController(){
 
   this.findWinner = function(connections) {
     var winner;
+    var bindedThis = this;
     connections.forEach(function(value){
-      debugger;
-      if (value.length >= this.winCondition) {
+      if (value.length >= bindedThis.winCondition) {
         value.forEach ( function(winSpot) {
-          this.board[winSpot[0]][winSpot[1]] = this.currentPlayer + "wins";
+          bindedThis.board[winSpot[0]][winSpot[1]] = bindedThis.currentPlayer + "wins";
         })
-        winner = this.currentPlayer;
+        winner = bindedThis.currentPlayer;
       } 
     })
     return winner;
