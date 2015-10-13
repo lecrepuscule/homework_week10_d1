@@ -2,14 +2,20 @@ angular.module("ticTacToe").controller("BoardController", BoardController);
 
 function BoardController(){
 
-  this.board = [];
+  this.board;
   this.maxRow;
   this.maxColumn;
   this.winCondition;
   this.winner;
-  this.currentPlayer = "x";
+  this.currentPlayer;
+  this.moveCounter;
 
   this.setupBoard = function(){
+    this.board = [];
+    this.winner = null;
+    this.currentPlayer = "x";
+    this.moveCounter = 0;
+
     for (r = 0; r < this.maxRow; r++) {
       this.board.push([]);
       for (c = 0; c < this.maxColumn; c++) {
@@ -71,10 +77,12 @@ function BoardController(){
         continue;
       }
     }
-    // if (document.getElementsByClassName("empty").length < 1) {
-    //     return winner = "draw";
-    // }
+    this.moveCounter++;
+    if (this.moveCounter >= ((this.maxRow +1)* (this.maxColumn+1))) {
+      return winner = "draw";
+    }
     this.currentPlayer = this.currentPlayer === "x" ? "o" : "x";
+    this.moveCounter++;
   }
 
   this.findWinner = function(connections) {
