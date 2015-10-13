@@ -25,7 +25,7 @@
   </form>
 
   <div id="container">
-    <h2 ng-if="(!board.winner) && (board.moveCounter === 0) ">{{ board.currentPlayer }}'s turn</h2>
+    <h2 ng-if="(!board.winner) && (board.moveCounter >= 0) ">{{ board.currentPlayer }}'s turn</h2>
     <h2 ng-if="board.winner === ('x' || 'o') && moveCount">{{ board.winner }} has won!</h2>
     <h2 ng-if="board.winner === 'draw'">Draw! both losers</h2>
 
@@ -33,7 +33,6 @@
     <div id="board">
       <div class="row" ng-repeat="(rowIndex, row) in board.board track by $index">
         <div class="square {{board.board[rowIndex][columnIndex]}}" ng-repeat="(columnIndex, column) in row track by $index" ng-click="board.winner ? board.endGame() : board.makeMove(rowIndex, columnIndex)">
-        r: {{rowIndex}}, c: {{columnIndex}} 
         </div>
       </div>
     </div>
