@@ -26,7 +26,7 @@
 
   <div id="container">
     <h2 ng-if="(!board.winner) && (board.moveCounter >= 0) ">{{ board.currentPlayer }}'s turn</h2>
-    <h2 ng-if="board.winner === ('x' || 'o') && moveCount">{{ board.winner }} has won!</h2>
+    <h2 ng-if="(board.winner === ('x' || 'o')) && board.moveCounter">{{ board.winner }} has won!</h2>
     <h2 ng-if="board.winner === 'draw'">Draw! both losers</h2>
 
 
