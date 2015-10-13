@@ -12,7 +12,7 @@ input {
 
 #board {
   height: 100%;
-  margin: 150px;
+  margin: 50px 150px;
   border: 2px solid violet;
   text-align: center;
 }

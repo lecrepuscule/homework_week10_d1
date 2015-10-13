@@ -46,7 +46,7 @@
 
     <div id="board">
       <div class="row" ng-repeat="(rowIndex, row) in board.board track by $index">
-        <div class="square {{board.board[rowIndex][columnIndex]}}" ng-repeat="(columnIndex, column) in row track by $index" ng-click="board.winner ? board.endGame() : board.makeMove(rowIndex, columnIndex)">
+        <div class="square {{board.board[rowIndex][columnIndex]}}" ng-repeat="(columnIndex, column) in row track by $index" ng-click="board.winner || board.makeMove(rowIndex, columnIndex)">
         </div>
       </div>
     </div>

@@ -63,11 +63,6 @@ function BoardController(){
         verticalConnections = this.countConnections(row, i, column, 0, verticalConnections);
       }
 
-      console.log(horizontalConnections);
-      console.log(verticalConnections);
-      console.log(leadDiagConnections);
-      console.log(antiDiagConnections);
-
       var winner = this.findWinner([horizontalConnections, verticalConnections, leadDiagConnections, antiDiagConnections]);
       
       if (winner) {
@@ -77,6 +72,7 @@ function BoardController(){
         continue;
       }
     }
+
     this.moveCounter++;
     if (this.moveCounter >= ((this.maxRow +1)* (this.maxColumn+1))) {
       return winner = "draw";
@@ -100,13 +96,6 @@ function BoardController(){
   }
 
   this.endGame = function(winner) {
-    // alert(winner === "draw" ? "It's a draw!" : winner + " has won!");
-    // if (window.confirm("Would you like to play another game?")) {
-    //   runGame();
-    // } 
-    // else {
-    //   alert("Bye!");
-    // }
   }
 
 }
